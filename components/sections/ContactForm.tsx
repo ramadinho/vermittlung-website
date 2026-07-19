@@ -28,6 +28,7 @@ export default function ContactForm() {
   const [files, setFiles] = useState<File[]>([]);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
 
   const {
@@ -46,6 +47,7 @@ export default function ContactForm() {
 
   const onSubmit = async (data: FormData) => {
     setSubmitting(true);
+    setSubmitError(false);
     const fd = new FormData();
     fd.append("form-name", "contact");
     fd.append("bot-field", "");
@@ -54,8 +56,15 @@ export default function ContactForm() {
     try {
       // Netlify Forms: die statische __forms.html registriert das Formular
       // beim Deploy, der eigentliche Versand läuft per AJAX über denselben Namen.
+      // Achtung: funktioniert nur auf der echten Netlify-Domain, nicht im lokalen "next dev".
       const res = await fetch("/__forms.html", { method: "POST", body: fd });
-      if (res.ok) setSubmitted(true);
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setSubmitError(true);
+      }
+    } catch {
+      setSubmitError(true);
     } finally {
       setSubmitting(false);
     }
@@ -87,7 +96,7 @@ export default function ContactForm() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="text-[15px] text-[#4B5563] leading-relaxed"
+            className="text-[15px] text-[#9CA3AF] leading-relaxed"
           >
             Wir melden uns innerhalb von{" "}
             <span className="text-white">24 Stunden</span> persönlich bei Ihnen.
@@ -129,7 +138,7 @@ export default function ContactForm() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-[15px] text-[#4B5563] leading-relaxed max-w-sm"
+              className="text-[15px] text-[#9CA3AF] leading-relaxed max-w-sm"
             >
               Beschreiben Sie Ihr Anliegen — wir melden uns persönlich und kümmern uns um den Rest.
             </motion.p>
@@ -167,7 +176,7 @@ export default function ContactForm() {
             {/* Progress */}
             <div className="mb-10">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-[11px] uppercase tracking-[0.18em] text-[#374151]">
+                <span className="text-[11px] uppercase tracking-[0.18em] text-[#7C8798]">
                   Schritt {step} von 3
                 </span>
               </div>
@@ -209,14 +218,14 @@ export default function ContactForm() {
 
                   <div className="flex flex-col gap-2">
                     <div className="flex items-center gap-2">
-                      <label className="text-[11px] uppercase tracking-[0.14em] font-medium text-[#4B5563]">Ihr Anliegen</label>
+                      <label className="text-[11px] uppercase tracking-[0.14em] font-medium text-[#9CA3AF]">Ihr Anliegen</label>
                       <span className="text-[10px] text-red-400 uppercase tracking-wider">Pflichtfeld</span>
                     </div>
                     <textarea
                       rows={6}
                       placeholder="Beschreiben Sie Ihr Anliegen — kein Fachwissen nötig..."
                       {...register("description")}
-                      className={`w-full px-4 py-4 rounded-xl bg-white/5 border text-[14px] text-white placeholder-[#374151] outline-none resize-none transition-all duration-200 focus:border-[#4A7FA5] ${
+                      className={`w-full px-4 py-4 rounded-xl bg-white/5 border text-[14px] text-white placeholder-[#7C8798] outline-none resize-none transition-all duration-200 focus:border-[#4A7FA5] ${
                         errors.description ? "border-red-500/50" : "border-white/10"
                       }`}
                     />
@@ -224,15 +233,15 @@ export default function ContactForm() {
                   </div>
 
                   <div className="flex flex-col gap-2">
-                    <label className="text-[11px] uppercase tracking-[0.14em] font-medium text-[#4B5563]">
-                      Bilder <span className="normal-case tracking-normal text-[#374151]">— optional</span>
+                    <label className="text-[11px] uppercase tracking-[0.14em] font-medium text-[#9CA3AF]">
+                      Bilder <span className="normal-case tracking-normal text-[#7C8798]">— optional</span>
                     </label>
                     <div
                       onClick={() => fileRef.current?.click()}
                       className="border border-dashed border-white/10 rounded-xl p-5 flex items-center justify-center gap-3 cursor-pointer hover:border-white/20 transition-colors duration-200"
                     >
-                      <ImagePlus size={15} strokeWidth={1.5} className="text-[#374151]" />
-                      <span className="text-[13px] text-[#374151]">Klicken zum Hochladen</span>
+                      <ImagePlus size={15} strokeWidth={1.5} className="text-[#7C8798]" />
+                      <span className="text-[13px] text-[#7C8798]">Klicken zum Hochladen</span>
                     </div>
                     <input ref={fileRef} type="file" accept="image/*" multiple className="hidden" onChange={(e) => {
                       const sel = Array.from(e.target.files || []);
@@ -244,7 +253,7 @@ export default function ContactForm() {
                           <div key={i} className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-lg px-3 py-1.5">
                             <span className="text-[11px] text-[#6B7280] max-w-[100px] truncate">{f.name}</span>
                             <button type="button" onClick={() => setFiles((p) => p.filter((_, j) => j !== i))}>
-                              <X size={10} className="text-[#4B5563]" />
+                              <X size={10} className="text-[#9CA3AF]" />
                             </button>
                           </div>
                         ))}
@@ -263,7 +272,7 @@ export default function ContactForm() {
                   transition={{ duration: 0.25 }}
                   className="flex flex-col gap-4"
                 >
-                  <p className="text-[13px] text-[#4B5563] mb-2">Bitte prüfen Sie Ihre Angaben.</p>
+                  <p className="text-[13px] text-[#9CA3AF] mb-2">Bitte prüfen Sie Ihre Angaben.</p>
                   <div className="border-t border-white/8">
                     {[
                       { label: "E-Mail", value: v.email },
@@ -273,15 +282,15 @@ export default function ContactForm() {
                       { label: "Anliegen", value: v.description },
                     ].filter(r => r.value).map((row) => (
                       <div key={row.label} className="flex gap-6 py-4 border-b border-white/8">
-                        <span className="text-[11px] uppercase tracking-[0.12em] text-[#374151] w-16 shrink-0 mt-0.5">{row.label}</span>
+                        <span className="text-[11px] uppercase tracking-[0.12em] text-[#7C8798] w-16 shrink-0 mt-0.5">{row.label}</span>
                         <span className="text-[13px] text-white leading-relaxed">{row.value}</span>
                       </div>
                     ))}
                   </div>
                   {files.length > 0 && (
-                    <p className="text-[12px] text-[#374151]">{files.length} Bild(er) beigefügt</p>
+                    <p className="text-[12px] text-[#7C8798]">{files.length} Bild(er) beigefügt</p>
                   )}
-                  <p className="text-[11px] text-[#374151] mt-2">
+                  <p className="text-[11px] text-[#7C8798] mt-2">
                     Ihre Daten werden ausschliesslich zur Bearbeitung Ihrer Anfrage verwendet.
                   </p>
                 </motion.div>
@@ -293,7 +302,7 @@ export default function ContactForm() {
               <button
                 type="button"
                 onClick={() => setStep((s) => s - 1)}
-                className={`text-[13px] text-[#374151] hover:text-white transition-colors duration-200 ${step === 1 ? "invisible" : ""}`}
+                className={`text-[13px] text-[#7C8798] hover:text-white transition-colors duration-200 ${step === 1 ? "invisible" : ""}`}
               >
                 ← Zurück
               </button>
@@ -324,6 +333,11 @@ export default function ContactForm() {
                 </button>
               )}
             </div>
+            {submitError && (
+              <p className="text-[12px] text-red-400 mt-4">
+                Senden hat nicht funktioniert. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt eine E-Mail.
+              </p>
+            )}
           </div>
         </div>
       </div>
@@ -339,15 +353,15 @@ function Field({
   return (
     <div className="flex flex-col gap-2">
       <div className="flex items-center gap-2">
-        <label className="text-[11px] uppercase tracking-[0.14em] font-medium text-[#4B5563]">{label}</label>
+        <label className="text-[11px] uppercase tracking-[0.14em] font-medium text-[#9CA3AF]">{label}</label>
         {required && <span className="text-[10px] text-red-400 uppercase tracking-wider">Pflichtfeld</span>}
-        {hint && <span className="text-[10px] text-[#374151]">{hint}</span>}
+        {hint && <span className="text-[10px] text-[#7C8798]">{hint}</span>}
       </div>
       <input
         type={type}
         placeholder={placeholder}
         {...(registration as object)}
-        className={`w-full px-4 py-4 rounded-xl bg-white/5 border text-[14px] text-white placeholder-[#374151] outline-none transition-all duration-200 focus:border-[#4A7FA5] ${
+        className={`w-full px-4 py-4 rounded-xl bg-white/5 border text-[14px] text-white placeholder-[#7C8798] outline-none transition-all duration-200 focus:border-[#4A7FA5] ${
           error ? "border-red-500/50" : "border-white/10"
         }`}
       />
