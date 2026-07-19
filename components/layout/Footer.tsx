@@ -11,9 +11,9 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-3">
               <span className="w-6 h-6 rounded-md bg-[#0A0A0A] flex items-center justify-center">
-                <span className="text-white text-[10px] font-semibold">D</span>
+                <span className="text-white text-[10px] font-semibold">C</span>
               </span>
-              <span className="text-[14px] font-semibold tracking-tight text-[#0A0A0A]">Domum</span>
+              <span className="text-[14px] font-semibold tracking-tight text-[#0A0A0A]">Concivo</span>
             </div>
             <p className="text-[13px] text-[#94A3B8] max-w-xs leading-relaxed">
               Ihr persönlicher Hausmanager. Ein Ansprechpartner für alles rund um Ihre Immobilie.
@@ -42,8 +42,8 @@ export default function Footer() {
               <a href="tel:+41440000000" className="text-[13px] text-[#6B7280] hover:text-[#0A0A0A] transition-colors duration-200">
                 +41 44 000 00 00
               </a>
-              <a href="mailto:hallo@domum.ch" className="text-[13px] text-[#6B7280] hover:text-[#0A0A0A] transition-colors duration-200">
-                hallo@domum.ch
+              <a href="mailto:hallo@concivo.ch" className="text-[13px] text-[#6B7280] hover:text-[#0A0A0A] transition-colors duration-200">
+                hallo@concivo.ch
               </a>
             </div>
           </div>
@@ -51,7 +51,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="pt-8 border-t border-[#F1F1F1] flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[12px] text-[#C4C4C4]">© {currentYear} Domum. Alle Rechte vorbehalten.</p>
+          <p className="text-[12px] text-[#C4C4C4]">© {currentYear} Concivo. Alle Rechte vorbehalten.</p>
           <div className="flex items-center gap-6">
             {["Datenschutz", "Impressum", "AGB"].map((l) => (
               <a key={l} href="#" className="text-[12px] text-[#C4C4C4] hover:text-[#6B7280] transition-colors duration-200">

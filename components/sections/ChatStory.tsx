@@ -5,10 +5,10 @@ import { useRef } from "react";
 
 const messages = [
   { side: "customer", avatar: "K", text: "Ich brauche jemanden, der mein Badezimmer renoviert.", delay: 0 },
-  { side: "domum", avatar: "D", text: "Kein Problem. Beschreiben Sie kurz den Zustand.", delay: 0.6 },
+  { side: "concivo", avatar: "C", text: "Kein Problem. Beschreiben Sie kurz den Zustand.", delay: 0.6 },
   { side: "customer", avatar: "K", text: "Fliesen kaputt, Wasserhahn tropft, Licht flackert.", delay: 1.2 },
-  { side: "domum", avatar: "D", text: "Verstanden. Wir haben die richtigen Fachleute für Sie.", delay: 1.8 },
-  { side: "domum", avatar: "D", text: "✓ Termin Donnerstag, 10:00 Uhr bestätigt.", delay: 2.4, highlight: true },
+  { side: "concivo", avatar: "C", text: "Verstanden. Wir haben die richtigen Fachleute für Sie.", delay: 1.8 },
+  { side: "concivo", avatar: "C", text: "✓ Termin Donnerstag, 10:00 Uhr bestätigt.", delay: 2.4, highlight: true },
 ];
 
 function Bubble({ msg, active }: { msg: typeof messages[0]; active: boolean }) {
@@ -108,10 +108,10 @@ export default function ChatStory() {
               {/* Header */}
               <div className="px-5 py-4 border-b border-[#F1F1F1] flex items-center gap-3">
                 <div className="w-8 h-8 rounded-full bg-[#2D4A6B] flex items-center justify-center text-white text-[11px] font-semibold">
-                  D
+                  C
                 </div>
                 <div>
-                  <div className="text-[13px] font-medium text-[#0A0A0A]">Domum</div>
+                  <div className="text-[13px] font-medium text-[#0A0A0A]">Concivo</div>
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                     <span className="text-[11px] text-[#94A3B8]">Online</span>

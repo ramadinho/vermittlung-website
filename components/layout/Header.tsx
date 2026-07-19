@@ -32,9 +32,9 @@ export default function Header() {
         {/* Logo */}
         <a href="#" className="flex items-center gap-2">
           <span className="w-7 h-7 rounded-md bg-[#0A0A0A] flex items-center justify-center">
-            <span className="text-white text-xs font-semibold">D</span>
+            <span className="text-white text-xs font-semibold">C</span>
           </span>
-          <span className="text-[15px] font-semibold tracking-tight text-[#0A0A0A]">Domum</span>
+          <span className="text-[15px] font-semibold tracking-tight text-[#0A0A0A]">Concivo</span>
         </a>
 
         {/* Desktop Nav */}

@@ -6,7 +6,7 @@ import { Phone, Mail, MapPin } from "lucide-react";
 
 const contactItems = [
   { Icon: Phone, label: "Telefon", value: "+41 44 000 00 00", href: "tel:+41440000000" },
-  { Icon: Mail, label: "E-Mail", value: "hallo@domum.ch", href: "mailto:hallo@domum.ch" },
+  { Icon: Mail, label: "E-Mail", value: "hallo@concivo.ch", href: "mailto:hallo@concivo.ch" },
   { Icon: MapPin, label: "Adresse", value: "Musterstrasse 1, 8001 Zürich", href: "https://maps.google.com" },
 ];
 

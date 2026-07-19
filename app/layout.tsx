@@ -22,7 +22,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Domum — Ihr persönlicher Hausmanager",
+  title: "Concivo — Ihr persönlicher Hausmanager",
   description:
     "Beschreiben Sie Ihr Anliegen rund um Haus, Wohnung oder Liegenschaft — wir kümmern uns um den Rest. Ein Ansprechpartner. Vollständige Lösung.",
   keywords: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     "concierge service",
   ],
   openGraph: {
-    title: "Domum — Ihr persönlicher Hausmanager",
+    title: "Concivo — Ihr persönlicher Hausmanager",
     description:
       "Ein Ansprechpartner für alles rund um Ihre Immobilie. Wir organisieren, koordinieren und lösen.",
     type: "website",
