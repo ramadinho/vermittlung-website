@@ -41,7 +41,7 @@ export default function Contact() {
               className="text-[clamp(2rem,4vw,3rem)] font-light leading-tight tracking-tight text-[#0A0A0A] mb-5"
             >
               Sprechen wir{" "}
-              <span className="font-[family-name:var(--font-playfair)] italic text-[#2D4A6B]">
+              <span className="font-[family-name:var(--font-playfair)] italic text-[#EA580C]">
                 persönlich.
               </span>
             </motion.h2>
@@ -62,12 +62,12 @@ export default function Contact() {
                   initial={{ opacity: 0 }}
                   animate={inView ? { opacity: 1 } : {}}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.07 }}
-                  className="group flex items-center gap-4 py-5 border-b border-[#E5E7EB] hover:text-[#2D4A6B] transition-colors duration-200"
+                  className="group flex items-center gap-4 py-5 border-b border-[#E5E7EB] hover:text-[#EA580C] transition-colors duration-200"
                 >
-                  <item.Icon size={16} strokeWidth={1.5} className="text-[#94A3B8] group-hover:text-[#2D4A6B] transition-colors shrink-0" />
+                  <item.Icon size={16} strokeWidth={1.5} className="text-[#94A3B8] group-hover:text-[#EA580C] transition-colors shrink-0" />
                   <div>
                     <div className="text-[11px] uppercase tracking-[0.12em] text-[#94A3B8] mb-0.5">{item.label}</div>
-                    <div className="text-[14px] text-[#0A0A0A] group-hover:text-[#2D4A6B] transition-colors">{item.value}</div>
+                    <div className="text-[14px] text-[#0A0A0A] group-hover:text-[#EA580C] transition-colors">{item.value}</div>
                   </div>
                 </motion.a>
               ))}
@@ -80,25 +80,25 @@ export default function Contact() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.25 }}
           >
-            <div className="bg-[#0A0A0A] rounded-2xl p-10 text-white">
-              <h3 className="text-[14px] font-medium text-white mb-8 tracking-tight">Erreichbarkeit</h3>
-              <div className="flex flex-col border-t border-white/8">
+            <div className="bg-white rounded-2xl p-10 border border-[#F1F1F1] shadow-lg shadow-black/5">
+              <h3 className="text-[14px] font-medium text-[#0A0A0A] mb-8 tracking-tight">Erreichbarkeit</h3>
+              <div className="flex flex-col border-t border-[#F1F1F1]">
                 {hours.map((row) => (
                   <div
                     key={row.day}
-                    className="flex items-center justify-between py-4 border-b border-white/8"
+                    className="flex items-center justify-between py-4 border-b border-[#F1F1F1]"
                   >
-                    <span className="text-[13px] text-[#4B5563]">{row.day}</span>
-                    <span className={`text-[13px] ${row.open ? "text-white" : "text-[#374151]"}`}>
+                    <span className="text-[13px] text-[#6B7280]">{row.day}</span>
+                    <span className={`text-[13px] font-medium ${row.open ? "text-[#0A0A0A]" : "text-[#C4C4C4]"}`}>
                       {row.time}
                     </span>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-8 pt-8 border-t border-white/8">
-                <div className="text-[11px] uppercase tracking-[0.15em] text-[#4A7FA5] mb-2">Anfragen jederzeit</div>
-                <div className="text-[13px] text-[#4B5563] leading-relaxed">
+              <div className="mt-8 pt-8 border-t border-[#F1F1F1]">
+                <div className="text-[11px] uppercase tracking-[0.15em] text-[#EA580C] mb-2">Anfragen jederzeit</div>
+                <div className="text-[13px] text-[#6B7280] leading-relaxed">
                   Sie können uns rund um die Uhr über das Formular kontaktieren. Wir melden uns am nächsten Werktag.
                 </div>
               </div>

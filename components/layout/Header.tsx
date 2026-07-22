@@ -31,7 +31,7 @@ export default function Header() {
       <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2">
-          <span className="w-7 h-7 rounded-md bg-[#0A0A0A] flex items-center justify-center">
+          <span className="w-7 h-7 rounded-md bg-[#EA580C] flex items-center justify-center">
             <span className="text-white text-xs font-semibold">C</span>
           </span>
           <span className="text-[15px] font-semibold tracking-tight text-[#0A0A0A]">Concivo</span>
@@ -54,7 +54,7 @@ export default function Header() {
         <div className="hidden md:block">
           <a
             href="#anfrage"
-            className="text-[13px] font-medium bg-[#0A0A0A] text-white px-5 py-2 rounded-full hover:bg-[#2D4A6B] transition-colors duration-300"
+            className="text-[13px] font-medium bg-[#0A0A0A] text-white px-5 py-2 rounded-full hover:bg-[#EA580C] transition-colors duration-300"
           >
             Anfrage stellen
           </a>

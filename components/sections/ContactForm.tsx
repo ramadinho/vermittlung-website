@@ -74,49 +74,56 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <section id="anfrage" className="py-40 px-6 bg-[#0A0A0A]">
-        <div className="max-w-md mx-auto text-center">
+      <section id="anfrage" className="py-32 px-6 bg-gradient-to-br from-[#FB7B1F] to-[#DE4E09]">
+        <div className="max-w-md mx-auto">
           <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ type: "spring", bounce: 0.3 }}
-            className="w-16 h-16 rounded-full bg-[#2D4A6B] flex items-center justify-center mx-auto mb-8"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="bg-white rounded-3xl shadow-2xl shadow-black/20 px-10 py-14 text-center"
           >
-            <Check size={28} strokeWidth={1.5} className="text-white" />
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ type: "spring", bounce: 0.3, delay: 0.1 }}
+              className="w-16 h-16 rounded-full bg-[#EA580C] flex items-center justify-center mx-auto mb-8"
+            >
+              <Check size={28} strokeWidth={1.5} className="text-white" />
+            </motion.div>
+            <motion.h2
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.25 }}
+              className="text-[2.2rem] font-light tracking-tight text-[#0A0A0A] mb-4"
+            >
+              {v.name ? `Danke, ${v.name.split(" ")[0]}!` : "Vielen Dank!"}
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.35 }}
+              className="text-[15px] text-[#6B7280] leading-relaxed"
+            >
+              Wir melden uns innerhalb von{" "}
+              <span className="text-[#0A0A0A] font-medium">24 Stunden</span> persönlich bei Ihnen.
+            </motion.p>
           </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-[2.5rem] font-light tracking-tight text-white mb-4"
-          >
-            {v.name ? `Danke, ${v.name.split(" ")[0]}!` : "Vielen Dank!"}
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="text-[15px] text-[#9CA3AF] leading-relaxed"
-          >
-            Wir melden uns innerhalb von{" "}
-            <span className="text-white">24 Stunden</span> persönlich bei Ihnen.
-          </motion.p>
         </div>
       </section>
     );
   }
 
   return (
-    <section id="anfrage" className="py-32 px-6 bg-[#0A0A0A]">
+    <section id="anfrage" className="py-32 px-6 bg-gradient-to-br from-[#FB7B1F] to-[#DE4E09]">
       <div className="max-w-5xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-20">
-          {/* Left */}
-          <div className="flex flex-col justify-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+          {/* Left — direkt auf Orange */}
+          <div className="flex flex-col lg:sticky lg:top-28">
             <motion.p
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-[11px] uppercase tracking-[0.25em] text-[#4A7FA5] mb-5"
+              className="text-[11px] uppercase tracking-[0.25em] text-white/70 mb-5"
             >
               Anfrage
             </motion.p>
@@ -129,7 +136,7 @@ export default function ContactForm() {
             >
               Was können{" "}
               <br />
-              <span className="font-[family-name:var(--font-playfair)] italic text-[#4A7FA5]">
+              <span className="font-[family-name:var(--font-playfair)] italic text-[#0A0A0A]">
                 wir für Sie tun?
               </span>
             </motion.h2>
@@ -138,53 +145,57 @@ export default function ContactForm() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-[15px] text-[#9CA3AF] leading-relaxed max-w-sm"
+              className="text-[15px] text-white/80 leading-relaxed max-w-sm"
             >
               Beschreiben Sie Ihr Anliegen — wir melden uns persönlich und kümmern uns um den Rest.
             </motion.p>
 
             {/* Step indicators */}
-            <div className="hidden lg:flex flex-col gap-4 mt-16 border-t border-white/8 pt-10">
+            <div className="hidden lg:flex flex-col gap-4 mt-16 border-t border-white/20 pt-10">
               {STEPS.map((s) => (
                 <div
                   key={s.id}
                   className={`flex items-center gap-3 transition-opacity duration-300 ${
-                    s.id === step ? "opacity-100" : s.id < step ? "opacity-50" : "opacity-20"
+                    s.id === step ? "opacity-100" : s.id < step ? "opacity-70" : "opacity-40"
                   }`}
                 >
                   <div
                     className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${
-                      s.id < step ? "bg-[#2D4A6B]" : s.id === step ? "border border-[#4A7FA5]" : "border border-white/20"
+                      s.id < step ? "bg-white" : s.id === step ? "border-2 border-white" : "border border-white/40"
                     }`}
                   >
                     {s.id < step ? (
-                      <Check size={10} strokeWidth={2.5} className="text-white" />
+                      <Check size={11} strokeWidth={2.5} className="text-[#EA580C]" />
                     ) : (
-                      <span className="text-[9px] text-white/50">{s.id}</span>
+                      <span className="text-[9px] text-white">{s.id}</span>
                     )}
                   </div>
-                  <span className={`text-[13px] ${s.id === step ? "text-white" : "text-white/40"}`}>
-                    {s.title}
-                  </span>
+                  <span className="text-[13px] text-white">{s.title}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Right: Form */}
-          <div className="flex flex-col justify-center">
+          {/* Right — weisse Karte für das eigentliche Formular */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.6 }}
+            className="bg-white rounded-3xl shadow-2xl shadow-black/20 p-8 sm:p-10"
+          >
             {/* Progress */}
-            <div className="mb-10">
+            <div className="mb-8">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-[11px] uppercase tracking-[0.18em] text-[#7C8798]">
+                <span className="text-[11px] uppercase tracking-[0.18em] text-[#94A3B8]">
                   Schritt {step} von 3
                 </span>
               </div>
-              <div className="h-px bg-white/8 rounded-full overflow-hidden">
+              <div className="h-1.5 bg-[#F1F1F1] rounded-full overflow-hidden">
                 <motion.div
                   animate={{ width: `${((step - 1) / 3) * 100}%` }}
                   transition={{ duration: 0.5 }}
-                  className="h-full bg-[#2D4A6B]"
+                  className="h-full bg-[#EA580C] rounded-full"
                 />
               </div>
             </div>
@@ -218,30 +229,30 @@ export default function ContactForm() {
 
                   <div className="flex flex-col gap-2">
                     <div className="flex items-center gap-2">
-                      <label className="text-[11px] uppercase tracking-[0.14em] font-medium text-[#9CA3AF]">Ihr Anliegen</label>
-                      <span className="text-[10px] text-red-400 uppercase tracking-wider">Pflichtfeld</span>
+                      <label className="text-[11px] uppercase tracking-[0.14em] font-medium text-[#374151]">Ihr Anliegen</label>
+                      <span className="text-[10px] text-[#EA580C] uppercase tracking-wider">Pflichtfeld</span>
                     </div>
                     <textarea
                       rows={6}
                       placeholder="Beschreiben Sie Ihr Anliegen — kein Fachwissen nötig..."
                       {...register("description")}
-                      className={`w-full px-4 py-4 rounded-xl bg-white/5 border text-[14px] text-white placeholder-[#7C8798] outline-none resize-none transition-all duration-200 focus:border-[#4A7FA5] ${
-                        errors.description ? "border-red-500/50" : "border-white/10"
+                      className={`w-full px-4 py-4 rounded-xl bg-[#FAFAFA] border text-[14px] text-[#0A0A0A] placeholder-[#B4B4B4] outline-none resize-none transition-all duration-200 focus:bg-white focus:border-[#EA580C] ${
+                        errors.description ? "border-red-400" : "border-[#E5E7EB]"
                       }`}
                     />
-                    {errors.description && <p className="text-[12px] text-red-400">{errors.description.message}</p>}
+                    {errors.description && <p className="text-[12px] text-red-500">{errors.description.message}</p>}
                   </div>
 
                   <div className="flex flex-col gap-2">
-                    <label className="text-[11px] uppercase tracking-[0.14em] font-medium text-[#9CA3AF]">
-                      Bilder <span className="normal-case tracking-normal text-[#7C8798]">— optional</span>
+                    <label className="text-[11px] uppercase tracking-[0.14em] font-medium text-[#374151]">
+                      Bilder <span className="normal-case tracking-normal text-[#94A3B8]">— optional</span>
                     </label>
                     <div
                       onClick={() => fileRef.current?.click()}
-                      className="border border-dashed border-white/10 rounded-xl p-5 flex items-center justify-center gap-3 cursor-pointer hover:border-white/20 transition-colors duration-200"
+                      className="border border-dashed border-[#E5E7EB] rounded-xl p-5 flex items-center justify-center gap-3 cursor-pointer hover:border-[#EA580C]/40 hover:bg-[#FFF7F0] transition-colors duration-200"
                     >
-                      <ImagePlus size={15} strokeWidth={1.5} className="text-[#7C8798]" />
-                      <span className="text-[13px] text-[#7C8798]">Klicken zum Hochladen</span>
+                      <ImagePlus size={15} strokeWidth={1.5} className="text-[#94A3B8]" />
+                      <span className="text-[13px] text-[#94A3B8]">Klicken zum Hochladen</span>
                     </div>
                     <input ref={fileRef} type="file" accept="image/*" multiple className="hidden" onChange={(e) => {
                       const sel = Array.from(e.target.files || []);
@@ -250,10 +261,10 @@ export default function ContactForm() {
                     {files.length > 0 && (
                       <div className="flex flex-wrap gap-2">
                         {files.map((f, i) => (
-                          <div key={i} className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-lg px-3 py-1.5">
+                          <div key={i} className="flex items-center gap-2 bg-[#FAFAFA] border border-[#E5E7EB] rounded-lg px-3 py-1.5">
                             <span className="text-[11px] text-[#6B7280] max-w-[100px] truncate">{f.name}</span>
                             <button type="button" onClick={() => setFiles((p) => p.filter((_, j) => j !== i))}>
-                              <X size={10} className="text-[#9CA3AF]" />
+                              <X size={10} className="text-[#94A3AF]" />
                             </button>
                           </div>
                         ))}
@@ -272,8 +283,8 @@ export default function ContactForm() {
                   transition={{ duration: 0.25 }}
                   className="flex flex-col gap-4"
                 >
-                  <p className="text-[13px] text-[#9CA3AF] mb-2">Bitte prüfen Sie Ihre Angaben.</p>
-                  <div className="border-t border-white/8">
+                  <p className="text-[13px] text-[#6B7280] mb-2">Bitte prüfen Sie Ihre Angaben.</p>
+                  <div className="border-t border-[#F1F1F1]">
                     {[
                       { label: "E-Mail", value: v.email },
                       { label: "Name", value: v.name },
@@ -281,16 +292,16 @@ export default function ContactForm() {
                       { label: "Adresse", value: v.address },
                       { label: "Anliegen", value: v.description },
                     ].filter(r => r.value).map((row) => (
-                      <div key={row.label} className="flex gap-6 py-4 border-b border-white/8">
-                        <span className="text-[11px] uppercase tracking-[0.12em] text-[#7C8798] w-16 shrink-0 mt-0.5">{row.label}</span>
-                        <span className="text-[13px] text-white leading-relaxed">{row.value}</span>
+                      <div key={row.label} className="flex gap-6 py-4 border-b border-[#F1F1F1]">
+                        <span className="text-[11px] uppercase tracking-[0.12em] text-[#94A3B8] w-16 shrink-0 mt-0.5">{row.label}</span>
+                        <span className="text-[13px] text-[#0A0A0A] leading-relaxed">{row.value}</span>
                       </div>
                     ))}
                   </div>
                   {files.length > 0 && (
-                    <p className="text-[12px] text-[#7C8798]">{files.length} Bild(er) beigefügt</p>
+                    <p className="text-[12px] text-[#94A3B8]">{files.length} Bild(er) beigefügt</p>
                   )}
-                  <p className="text-[11px] text-[#7C8798] mt-2">
+                  <p className="text-[11px] text-[#94A3B8] mt-2">
                     Ihre Daten werden ausschliesslich zur Bearbeitung Ihrer Anfrage verwendet.
                   </p>
                 </motion.div>
@@ -302,7 +313,7 @@ export default function ContactForm() {
               <button
                 type="button"
                 onClick={() => setStep((s) => s - 1)}
-                className={`text-[13px] text-[#7C8798] hover:text-white transition-colors duration-200 ${step === 1 ? "invisible" : ""}`}
+                className={`text-[13px] text-[#94A3B8] hover:text-[#0A0A0A] transition-colors duration-200 ${step === 1 ? "invisible" : ""}`}
               >
                 ← Zurück
               </button>
@@ -311,7 +322,7 @@ export default function ContactForm() {
                 <button
                   type="button"
                   onClick={next}
-                  className="inline-flex items-center gap-2 bg-white text-[#0A0A0A] text-[13px] font-medium px-7 py-3 rounded-full hover:bg-[#F5F5F5] transition-colors duration-200"
+                  className="inline-flex items-center gap-2 bg-[#EA580C] text-white text-[13px] font-medium px-7 py-3 rounded-full hover:bg-[#D6480A] transition-colors duration-200"
                 >
                   Weiter
                   <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -323,7 +334,7 @@ export default function ContactForm() {
                   type="button"
                   onClick={handleSubmit(onSubmit)}
                   disabled={submitting}
-                  className="inline-flex items-center gap-2 bg-white text-[#0A0A0A] text-[13px] font-medium px-7 py-3 rounded-full hover:bg-[#F5F5F5] transition-colors duration-200 disabled:opacity-50"
+                  className="inline-flex items-center gap-2 bg-[#EA580C] text-white text-[13px] font-medium px-7 py-3 rounded-full hover:bg-[#D6480A] transition-colors duration-200 disabled:opacity-50"
                 >
                   {submitting ? (
                     <><Loader2 size={14} className="animate-spin" /> Wird gesendet...</>
@@ -334,11 +345,11 @@ export default function ContactForm() {
               )}
             </div>
             {submitError && (
-              <p className="text-[12px] text-red-400 mt-4">
+              <p className="text-[12px] text-red-500 mt-4">
                 Senden hat nicht funktioniert. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt eine E-Mail.
               </p>
             )}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -353,19 +364,19 @@ function Field({
   return (
     <div className="flex flex-col gap-2">
       <div className="flex items-center gap-2">
-        <label className="text-[11px] uppercase tracking-[0.14em] font-medium text-[#9CA3AF]">{label}</label>
-        {required && <span className="text-[10px] text-red-400 uppercase tracking-wider">Pflichtfeld</span>}
-        {hint && <span className="text-[10px] text-[#7C8798]">{hint}</span>}
+        <label className="text-[11px] uppercase tracking-[0.14em] font-medium text-[#374151]">{label}</label>
+        {required && <span className="text-[10px] text-[#EA580C] uppercase tracking-wider">Pflichtfeld</span>}
+        {hint && <span className="text-[10px] text-[#94A3B8]">{hint}</span>}
       </div>
       <input
         type={type}
         placeholder={placeholder}
         {...(registration as object)}
-        className={`w-full px-4 py-4 rounded-xl bg-white/5 border text-[14px] text-white placeholder-[#7C8798] outline-none transition-all duration-200 focus:border-[#4A7FA5] ${
-          error ? "border-red-500/50" : "border-white/10"
+        className={`w-full px-4 py-4 rounded-xl bg-[#FAFAFA] border text-[14px] text-[#0A0A0A] placeholder-[#B4B4B4] outline-none transition-all duration-200 focus:bg-white focus:border-[#EA580C] ${
+          error ? "border-red-400" : "border-[#E5E7EB]"
         }`}
       />
-      {error && <p className="text-[12px] text-red-400">{error}</p>}
+      {error && <p className="text-[12px] text-red-500">{error}</p>}
     </div>
   );
 }

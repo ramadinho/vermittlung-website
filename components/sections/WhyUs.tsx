@@ -35,7 +35,7 @@ export default function WhyUs() {
               className="text-[clamp(2rem,4vw,3rem)] font-light leading-tight tracking-tight text-[#0A0A0A] mb-16"
             >
               Persönlich.{" "}
-              <span className="font-[family-name:var(--font-playfair)] italic text-[#2D4A6B]">
+              <span className="font-[family-name:var(--font-playfair)] italic text-[#EA580C]">
                 Verlässlich.
               </span>
             </motion.h2>
@@ -71,7 +71,7 @@ export default function WhyUs() {
                 Ich musste mich um nichts kümmern. Ein Anruf — und alles war geregelt.
               </blockquote>
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-[#2D4A6B] flex items-center justify-center text-[12px] font-medium text-white">
+                <div className="w-8 h-8 rounded-full bg-[#EA580C] flex items-center justify-center text-[12px] font-medium text-white">
                   M
                 </div>
                 <div>

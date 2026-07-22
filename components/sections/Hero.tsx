@@ -23,7 +23,7 @@ export default function Hero() {
         >
           Ihr Zuhause.
           <br />
-          <span className="font-[family-name:var(--font-playfair)] italic text-[#2D4A6B]">
+          <span className="font-[family-name:var(--font-playfair)] italic text-[#EA580C]">
             Unsere Aufgabe.
           </span>
         </motion.h1>
@@ -46,7 +46,7 @@ export default function Hero() {
         >
           <a
             href="#anfrage"
-            className="inline-flex items-center gap-2 bg-[#0A0A0A] text-white text-[14px] font-medium px-8 py-3.5 rounded-full hover:bg-[#2D4A6B] transition-colors duration-300"
+            className="inline-flex items-center gap-2 bg-[#0A0A0A] text-white text-[14px] font-medium px-8 py-3.5 rounded-full hover:bg-[#EA580C] transition-colors duration-300"
           >
             Anfrage stellen
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

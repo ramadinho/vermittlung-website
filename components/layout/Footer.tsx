@@ -10,7 +10,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <span className="w-6 h-6 rounded-md bg-[#0A0A0A] flex items-center justify-center">
+              <span className="w-6 h-6 rounded-md bg-[#EA580C] flex items-center justify-center">
                 <span className="text-white text-[10px] font-semibold">C</span>
               </span>
               <span className="text-[14px] font-semibold tracking-tight text-[#0A0A0A]">Concivo</span>

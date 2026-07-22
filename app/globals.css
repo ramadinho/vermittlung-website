@@ -6,8 +6,8 @@
   --muted: #6B7280;
   --border: #E5E7EB;
   --surface: #FFFFFF;
-  --accent: #334155;
-  --accent-light: #64748B;
+  --accent: #EA580C;
+  --accent-light: #FDBA74;
 }
 
 * {
@@ -54,7 +54,7 @@ body {
 
 /* Smooth focus ring */
 *:focus-visible {
-  outline: 2px solid #334155;
+  outline: 2px solid #EA580C;
   outline-offset: 2px;
   border-radius: 4px;
 }

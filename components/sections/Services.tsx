@@ -36,7 +36,7 @@ export default function Services() {
             className="text-[clamp(2rem,4vw,3rem)] font-light leading-tight tracking-tight text-[#0A0A0A]"
           >
             Alles rund um{" "}
-            <span className="font-[family-name:var(--font-playfair)] italic text-[#2D4A6B]">
+            <span className="font-[family-name:var(--font-playfair)] italic text-[#EA580C]">
               Ihre Immobilie
             </span>
           </motion.h2>
@@ -56,7 +56,7 @@ export default function Services() {
                 transition={{ duration: 0.5, delay: index * 0.05 }}
                 className="bg-white p-8 group hover:bg-[#FAFAFA] transition-colors duration-300"
               >
-                <Icon size={20} strokeWidth={1.5} className="text-[#2D4A6B] mb-5" />
+                <Icon size={20} strokeWidth={1.5} className="text-[#EA580C] mb-5" />
                 <h3 className="text-[15px] font-medium text-[#0A0A0A] mb-2 tracking-tight">
                   {service.title}
                 </h3>
